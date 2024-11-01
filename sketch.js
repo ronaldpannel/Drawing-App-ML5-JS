@@ -10,9 +10,9 @@ function preload() {
   // Load the handPose model
   handPose = ml5.handPose({ flipped: true });
 }
-// function mousePressed() {
-//   console.log(hands);
-// }
+function mousePressed() {
+  console.log(hands);
+}
 
 function getHands(results) {
   hands = results;
@@ -40,14 +40,13 @@ function draw() {
     let y = (thumb.y + index.y) / 2;
 
     let d = dist(thumb.x, thumb.y, index.x, index.y);
-    if (d < 30) {
+    if (d < 50) {
       painting.stroke(255, 255, 0);
-      painting.strokeWeight(4)
+      painting.strokeWeight(4);
       painting.line(px, py, x, y);
-     
     }
-     px = x;
-     py = y;
+    px = x;
+    py = y;
   }
   image(painting, 0, 0);
 }
